@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <script src="/static/js/jquery-1.12.4.min.js"></script>
+    <style type="text/css">
+        input,select {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        }
+        .error{
+            color: red;
+        }
+
+    </style>
+
+</head>
+<body>
+<h3>添加页面</h3>
+
+{% include 'form.html' %}
+
+<script type="text/javascript">
+    function pop_response(pk, text,pop_res_id) {
+        console.log(pk);
+        console.log(text);
+        console.log(pop_res_id);
+
+         // optiond得文本值 和value
+        var $option = $("<option>"); //<option></option>
+        $option.html(text);
+        $option.val(pk);
+        $option.attr('selected','selected');
+
+        $('#'+pop_res_id).append($option)
+    }
+
+</script>
+
+</body>
+</html>

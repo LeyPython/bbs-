@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block page-main %}
+ {% for foo in article_obj %}
+        <div class="article-list">
+            <div class="media">
+                <div class="media-left media-middle">
+                    <a href="#">
+                        <img class="media-object author-img" src="media/{{ foo.user.avatar }}" alt="...">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <a href="/bbs/{{ foo.user.username }}/article_detail/{{ foo.pk }}"><h1 class="media-heading">{{ foo.title }}</h1></a>
+                    <div class="media-body">
+                        <p>{{ foo.desc }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="article-footer">
+                <span><a href="">{{ foo.user.username }}</a></span>发布于
+                <span>{{ foo.create_time|date:'Y-m-d H:i:s' }}</span>
+                <span><i class="fa fa-commenting-o" aria-hidden="true">评论({{ foo.comment_count }})</i></span>
+                <span><i class="fa fa-thumbs-o-up" aria-hidden="true">点赞({{ foo.up_count }})</i></span>
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
+{% endblock %}
